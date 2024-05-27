@@ -27,13 +27,13 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu22.04-aarch64, ubuntu22.04, ubuntu20.04-aarch64, ubuntu20.04, ubi9-aarch64, ubi9,]
-    runs-on: macos-13
+    runs-on: macos-14
     steps:
     - uses: actions/checkout@v4
     - name: Build Release
       id: build_release
       run: |
-        DEVELOPER_DIR=/Applications/Xcode_15.1.app/Contents/Developer ./create-toolchain ${{ matrix.os }}
+        DEVELOPER_DIR=/Applications/Xcode_15.4.app/Contents/Developer ./create-toolchain ${{ matrix.os }}
 
     - name: Attach Build To Release
       run: |
